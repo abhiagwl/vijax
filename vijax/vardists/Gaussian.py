@@ -3,10 +3,6 @@ import jax
 import jax.numpy as jnp
 import jax.scipy as jscipy
 
-from typing import Tuple
-
-from utils import VarParams, Key, Scalar, Latent
-
 def log_add_exp(x1, x2):
     """
     Compute the log of the sum of exponentials of inputs.
@@ -144,7 +140,7 @@ class Gaussian:
 
     S = jnp.log(jnp.exp(1) - 1)  # Used to initialize the covariance matrix to identity
 
-    def __init__(self, ndim: int):
+    def __init__(self, ndim):
         """
         Initialize the Gaussian distribution with the given number of dimensions.
 
@@ -154,7 +150,7 @@ class Gaussian:
         self._ndim = ndim
 
     @property
-    def ndim(self) -> int:
+    def ndim(self):
         """
         Get the number of dimensions.
 
@@ -164,7 +160,7 @@ class Gaussian:
         return self._ndim
 
     @ndim.setter
-    def ndim(self, ndim: int):
+    def ndim(self, ndim):
         """
         Set the number of dimensions. Ensures the value is non-negative.
 
@@ -178,7 +174,7 @@ class Gaussian:
             raise ValueError("ndim must be non-negative")
         self._ndim = ndim
 
-    def initial_params(self) -> VarParams:
+    def initial_params(self):
         """
         Initialize the parameters of the Gaussian distribution.
 
@@ -188,7 +184,7 @@ class Gaussian:
         return [jnp.zeros(self.ndim).astype(float),
                 self.S * jnp.eye(self.ndim).astype(float)]
 
-    def transform_params(self, params: VarParams) -> VarParams:
+    def transform_params(self, params):
         """
         Transform the parameters to ensure they are valid.
 
@@ -200,7 +196,7 @@ class Gaussian:
         """
         return params[0], pos_tril(params[1])
 
-    def sample(self, params: VarParams, key: Key = jax.random.PRNGKey(0)) -> Latent:
+    def sample(self, params, key = jax.random.PRNGKey(0)):
         """
         Sample from the Gaussian distribution.
 
@@ -215,7 +211,7 @@ class Gaussian:
         ε = jax.random.normal(key, (self.ndim,))
         return mu + jnp.dot(ε, sig.T)
 
-    def log_prob(self, params: VarParams, sample: Latent) -> Scalar:
+    def log_prob(self, params, sample):
         """
         Compute the log probability of a sample.
 
@@ -234,7 +230,7 @@ class Gaussian:
         c = jnp.sum(jnp.matmul(M, jnp.matmul(Λ, Λ.T)) * M, -1)
         return -0.5 * (a + b + c)
 
-    def entropy(self, params: VarParams) -> Scalar:
+    def entropy(self, params):
         """
         Compute the entropy of the Gaussian distribution.
 
@@ -294,7 +290,7 @@ class Gaussian:
         c = jnp.sum(eps**2, -1)
         return -0.5 * (a + b + c)
 
-    def sample_and_log_prob(self, params: VarParams, key: Key = jax.random.PRNGKey(0)) -> Tuple[Latent, Scalar]:
+    def sample_and_log_prob(self, params, key = jax.random.PRNGKey(0)):
         """
         Sample from the distribution and compute the log probability.
 
@@ -310,7 +306,7 @@ class Gaussian:
         z = mu + jnp.dot(ε, sig.T)
         return z, self._log_prob_from_eps(params, ε)
 
-    def sample_and_log_prob_stl(self, params: VarParams, key: Key = jax.random.PRNGKey(0)) -> Tuple[Latent, Scalar]:
+    def sample_and_log_prob_stl(self, params, key = jax.random.PRNGKey(0)):
         """
         Sample from the distribution and compute the log probability using stop-gradient.
 

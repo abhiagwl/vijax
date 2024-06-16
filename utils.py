@@ -7,16 +7,8 @@ import jax.numpy as jnp
 
 
 from collections import namedtuple
-from typing import Union, Tuple
 
 from jax.random import PRNGKey
-from jaxtyping import Float, Integer, Array, PyTree
-
-# define JAX types
-Key = Union[jax.Array, PRNGKey]
-Scalar = Float[Array, ""]
-VarParams = PyTree[Float[Array, "..."]]
-Latent = Float[Array, "dim"]
 
 
 VIResults = namedtuple(

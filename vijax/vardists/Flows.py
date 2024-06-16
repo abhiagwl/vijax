@@ -1,6 +1,5 @@
 import jax.numpy as jnp
 import jax
-from functools import partial
 
 from vijax.vardists.Gaussian import Gaussian
 

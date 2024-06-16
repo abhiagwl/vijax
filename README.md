@@ -137,5 +137,38 @@ This repository includes several variational distributions that can be used for 
 | RealNVP                     | A flow-based variational distribution using RealNVP transformations. [Reference](vijax/vardists/Flows.py) |
 
 
+## Requirements
 
+This project requires Python 3.9 or higher. The dependencies for this project are managed using Conda and are listed in the `environment.yml` file. The main libraries used in this project include:
 
+- `jax`: A library for high-performance machine learning research.
+- `jaxlib`: The JAX library containing the XLA compiler and other dependencies.
+- `numpyro`: A probabilistic programming library built on JAX.
+- `tensorflow-probability`: A library for probabilistic reasoning and statistical analysis.
+- `inference-gym`: A suite of probabilistic models for benchmarking inference algorithms.
+
+## Setting Up the Environment
+
+To set up the environment, follow these steps:
+
+1. **Install Conda**: If you don't have Conda installed, download and install it.
+
+2. **Create the Conda Environment**: Use the `environment.yml` file to create a new Conda environment. Run the following command in your terminal:
+
+    ```sh
+    conda env create -f environment.yml
+    ```
+
+3. **Activate the Environment**: Once the environment is created, activate it using:
+
+    ```sh
+    conda activate vi_jax
+    ```
+
+4. **Run the Tests**: To ensure everything is set up correctly, run the test file `test_models_and_vardists.py`:
+
+    ```sh
+    python test_models_and_vardists.py
+    ```
+
+This will execute the tests and verify that all models and variational distributions are working as expected with the specified recipes.

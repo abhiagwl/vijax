@@ -1,0 +1,12 @@
+name: vi_jax
+channels:
+  - defaults
+dependencies:
+  - python>=3.9
+  - pip
+  - pip:
+      - jax
+      - jaxlib
+      - numpyro
+      - tensorflow-probability
+      - inference-gym
