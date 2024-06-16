@@ -1,0 +1,1 @@
+from vijax.recipes.simplervi import SimpleVI
