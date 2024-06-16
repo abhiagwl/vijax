@@ -1,7 +1,7 @@
 from inference_gym import using_jax as gym
 import jax
 import jax.numpy as jnp
-import utils
+import vijax.utils as utils
 
 
 class InferenceGymWrapper(utils.Immutable):

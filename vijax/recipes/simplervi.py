@@ -9,7 +9,7 @@ tfd = tfp.distributions
 
 import time
 import jax.scipy.optimize
-import utils
+import vijax.utils as utils
 
 class ELBO:
     def __init__(self, target, vardist):

@@ -3,7 +3,7 @@ import jax
 
 from vijax.vardists.Gaussian import Gaussian
 
-import utils
+import vijax.utils as utils
 
 class Flows():
     """

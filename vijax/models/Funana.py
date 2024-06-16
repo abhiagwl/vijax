@@ -1,6 +1,6 @@
 import jax
 import jax.numpy as jnp
-import utils
+import vijax.utils as utils
 from tensorflow_probability.substrates import jax as tfp
 tfd = tfp.distributions
 

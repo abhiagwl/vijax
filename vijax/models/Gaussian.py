@@ -1,7 +1,7 @@
 import jax
 import jax.numpy as jnp
 
-from utils import Immutable
+from vijax.utils import Immutable
 
 from tensorflow_probability.substrates import jax as tfp
 tfd = tfp.distributions
