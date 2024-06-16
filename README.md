@@ -112,7 +112,9 @@ new_q, new_w, vi_rez = recipe.run(target=model, vardist=flow_q, params=flow_w)
 
 
 ```
-## Implemented Models
+# Implemented features
+
+## Models
 
 This repository includes several probabilistic models that can be used for variational inference. Below is a table describing each model along with a reference to their implementation files.
 
@@ -126,7 +128,7 @@ This repository includes several probabilistic models that can be used for varia
 | Studentt-1.5                | A multivariate Student-t distribution with 1.5 degrees of freedom. [Reference](vijax/models/Studentt.py) |
 | Studentt-2.5                | A multivariate Student-t distribution with 2.5 degrees of freedom. [Reference](vijax/models/Studentt.py) |
 
-## Implemented Variational Distributions
+## Variational Distributions
 
 This repository includes several variational distributions that can be used for variational inference. Below is a table describing each distribution along with a reference to their implementation files.
 
@@ -137,7 +139,20 @@ This repository includes several variational distributions that can be used for 
 | RealNVP                     | A flow-based variational distribution using RealNVP transformations. [Reference](vijax/vardists/Flows.py) |
 
 
-## Requirements
+# Installation 
+
+## pip 
+
+You can install the `vijax` package using pip. 
+```sh
+pip install vijax
+```
+
+
+
+## Source
+
+### Requirements
 
 This project requires Python 3.9 or higher. The dependencies for this project are managed using Conda and are listed in the `environment.yml` file. The main libraries used in this project include:
 
@@ -147,7 +162,7 @@ This project requires Python 3.9 or higher. The dependencies for this project ar
 - `tensorflow-probability`: A library for probabilistic reasoning and statistical analysis.
 - `inference-gym`: A suite of probabilistic models for benchmarking inference algorithms.
 
-## Setting Up the Environment
+### Setting Up the Environment
 
 To set up the environment, follow these steps:
 
@@ -172,3 +187,4 @@ To set up the environment, follow these steps:
     ```
 
 This will execute the tests and verify that all models and variational distributions are working as expected with the specified recipes.
+
