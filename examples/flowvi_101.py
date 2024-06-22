@@ -1,5 +1,4 @@
-import vijax.models as models
-import vijax.vardists as vardists
+from vijax import models, vardists, recipes
 import vijax.recipes as recipes
 
 # Define a single model and variational distribution

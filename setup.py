@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="vijax",  # Replace with your own package name
-    version="0.0.2",
+    version="0.0.3",
     author="Abhinav Agrawal",
     author_email="agrawal.abhinav1@gmail.com",
     description="A JAX library to run VI.",
