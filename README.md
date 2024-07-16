@@ -81,14 +81,17 @@ A `Recipe` is a class that will "do inference". It must support three methods
 Here's an example of how the API might work.
 
 ```python
+# Import components from vijax package
+from vijax import models, recipes, vardists
+
 # Get model and variational distribution
 model = models.Funana(3)
 
 # Create an instance of the variational distribution
-gausssian_q = vardists.Gaussian(3)
+gaussian_q = vardists.Gaussian(3)
 
 # Initialize the parameters of the variational distribution
-gaussian_w = gausssian_q.initial_params()
+gaussian_w = gaussian_q.initial_params()
 
 # Create an instance of the recipe
 recipe = recipes.SimpleVI(maxiter=10, batchsize=128)
